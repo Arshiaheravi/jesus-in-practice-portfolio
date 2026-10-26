@@ -19,6 +19,7 @@ next-env.d.ts
 *.dump
 *.sql.gz
 *.jipbackup
+*.jipbackup.json
 *.jipbackup.manifest.json
 .vercel/
 
