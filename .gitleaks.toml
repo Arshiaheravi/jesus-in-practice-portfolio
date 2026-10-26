@@ -1,0 +1,30 @@
+title = "Jesus in Practice public source checks"
+
+[extend]
+useDefault = true
+
+# Only these exact, provider-invalid fixture values in their specific test files.
+# Changing a value does not inherit an exclusion, and no test directory is skipped.
+[[allowlists]]
+description = "Synthetic Stripe key-shape fixtures; never used for provider requests"
+condition = "AND"
+targetRules = ["stripe-access-token", "generic-api-key"]
+paths = ['''^(packages/backend/tests/release-preflight|apps/dashboard/tests/operations-readiness)\.test\.mjs$''']
+regexTarget = "secret"
+regexes = ['''^(sk|rk)_(test|live)_syntheticFixture123$''']
+
+[[allowlists]]
+description = "Synthetic local webhook destination-signing fixture"
+condition = "AND"
+targetRules = ["generic-api-key"]
+paths = ['''^apps/dashboard/tests/provider-webhooks\.test\.mjs$''']
+regexTarget = "secret"
+regexes = ['''^isolated-destination-fixture-secret-123456789$''']
+
+[[allowlists]]
+description = "Synthetic local unsubscribe-signing fixture"
+condition = "AND"
+targetRules = ["generic-api-key"]
+paths = ['''^apps/dashboard/tests/server-http\.test\.mjs$''']
+regexTarget = "secret"
+regexes = ['''^isolated-unsubscribe-fixture-secret-123456789$''']

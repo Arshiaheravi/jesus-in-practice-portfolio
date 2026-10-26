@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Applying this Blueprint creates paid services and an initial deployment.
+# Preview only until docs/render-deployment.md release gates are completed.
+previews:
+  generation: "off"
+
+services:
+  - type: web
+    name: jesus-in-practice-website
+    runtime: node
+    plan: 0.5c-512mb
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: >-
+      npx --yes pnpm@10.26.0 install --frozen-lockfile --prod=false &&
+      npx --yes pnpm@10.26.0 --filter @jesus-in-practice/website build
+    startCommand: npx --yes pnpm@10.26.0 --filter @jesus-in-practice/website start:host
+    healthCheckPath: /
+    domains:
+      - example.com
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://example.com
+      - key: NEXT_PUBLIC_DASHBOARD_URL
+        value: https://app.example.com
+      - key: NEXT_PUBLIC_APP_MODE
+        value: preview
+      - key: NEXT_PUBLIC_INDEXABLE
+        value: "false"
+
+  - type: web
+    name: jesus-in-practice-dashboard
+    runtime: node
+    plan: 0.5c-512mb
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: >-
+      npx --yes pnpm@10.26.0 install --frozen-lockfile --prod=false &&
+      npx --yes pnpm@10.26.0 --filter @jesus-in-practice/dashboard build
+    startCommand: npx --yes pnpm@10.26.0 --filter @jesus-in-practice/dashboard start:host
+    healthCheckPath: /api/health
+    maxShutdownDelaySeconds: 90
+    domains:
+      - app.example.com
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_SITE_URL
+        value: https://example.com
+      - key: NEXT_PUBLIC_DASHBOARD_URL
+        value: https://app.example.com
+      - key: APP_ORIGIN
+        value: https://app.example.com
+      - key: NEXT_PUBLIC_APP_MODE
+        value: preview
+      - key: NEXT_PUBLIC_INDEXABLE
+        value: "false"
+      - key: ENABLE_EMAIL_DELIVERY
+        value: "false"
+      - key: ENABLE_PHONE_VERIFICATION
+        value: "false"
+      - key: ENABLE_SMS_DELIVERY
+        value: "false"
+      - key: ENABLE_PAYMENTS
+        value: "false"
+      - key: STRIPE_LIVE_MODE
+        value: "false"
+      - key: COMMERCE_POLICY_APPROVED
+        value: "false"
+      - key: CONTENT_RIGHTS_ENABLED
+        value: "false"
+      - key: ENABLE_AI_DRAFTING
+        value: "false"
+      - key: ENABLE_RETENTION
+        value: "false"

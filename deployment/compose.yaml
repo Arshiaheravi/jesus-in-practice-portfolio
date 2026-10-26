@@ -1,0 +1,72 @@
+# Artifact template only. It does not provision DNS, TLS, Supabase or provider accounts.
+# The host's reviewed TLS reverse proxy connects to these loopback ports.
+services:
+  website:
+    image: jesus-in-practice-website:${RELEASE_REVISION:?Set the tested revision}
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+      target: app
+      args:
+        APP: website
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:?Set the approved public HTTPS origin}
+        NEXT_PUBLIC_DASHBOARD_URL: ${NEXT_PUBLIC_DASHBOARD_URL:?Set the approved member HTTPS origin}
+        NEXT_PUBLIC_APP_MODE: live
+        NEXT_PUBLIC_INDEXABLE: ${NEXT_PUBLIC_INDEXABLE:-false}
+    env_file: ${WEBSITE_ENV_FILE:?Supply a protected website environment file}
+    environment:
+      APP: website
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    ports: ["127.0.0.1:3000:3000"]
+    restart: unless-stopped
+    init: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+  dashboard:
+    image: jesus-in-practice-dashboard:${RELEASE_REVISION:?Set the tested revision}
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+      target: app
+      args:
+        APP: dashboard
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:?Set the approved public HTTPS origin}
+        NEXT_PUBLIC_DASHBOARD_URL: ${NEXT_PUBLIC_DASHBOARD_URL:?Set the approved member HTTPS origin}
+        NEXT_PUBLIC_APP_MODE: live
+        NEXT_PUBLIC_INDEXABLE: "false"
+    env_file: ${DASHBOARD_ENV_FILE:?Supply a protected member environment file}
+    environment:
+      APP: dashboard
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    ports: ["127.0.0.1:3001:3000"]
+    restart: unless-stopped
+    init: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+  scheduler:
+    profiles: [operations]
+    image: jesus-in-practice-operations:${RELEASE_REVISION:?Set the tested revision}
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+      target: scheduler
+    # Only APP_ORIGIN and CRON_SECRET; do not give this service database/provider keys.
+    env_file: ${SCHEDULER_ENV_FILE:?Supply a protected scheduler environment file}
+    depends_on:
+      dashboard: { condition: service_healthy }
+    restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }

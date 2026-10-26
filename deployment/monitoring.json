@@ -1,0 +1,23 @@
+{
+  "endpoint": "/api/jobs/readiness",
+  "authorizationEnvironment": "MONITORING_SECRET",
+  "intervalSeconds": 60,
+  "timeoutSeconds": 15,
+  "alertAfterConsecutiveFailures": 2,
+  "alertOnWarnAfterMinutes": 15,
+  "requiredAlerts": [
+    "readiness_unavailable",
+    "planner_freshness",
+    "queue_lag",
+    "unprocessed_webhooks",
+    "old_unknown_deliveries",
+    "blocked_wallets",
+    "retention_freshness",
+    "backup_overdue",
+    "restore_drill_overdue",
+    "provider_spend_limit"
+  ],
+  "notificationDestination": null,
+  "enabled": false,
+  "note": "Policy template. The approved host monitoring service must wire thresholds, a real destination, backup evidence and provider budget alerts. No notifications are configured or sent by this file."
+}

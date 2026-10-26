@@ -1,0 +1,100 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Free browser-local demonstration. Keep production configuration in ../render.yaml.
+# Shared free usage limits and account verification still apply; see docs/render-deployment.md.
+previews:
+  generation: "off"
+
+services:
+  - type: web
+    name: jesus-in-practice-website-preview
+    runtime: node
+    plan: free
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: >-
+      npx --yes pnpm@10.26.0 install --frozen-lockfile --prod=false &&
+      npx --yes pnpm@10.26.0 --filter @jesus-in-practice/website build
+    startCommand: npx --yes pnpm@10.26.0 --filter @jesus-in-practice/website start:host
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_SITE_URL
+        fromService:
+          type: web
+          name: jesus-in-practice-website-preview
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_DASHBOARD_URL
+        fromService:
+          type: web
+          name: jesus-in-practice-dashboard-preview
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_APP_MODE
+        value: preview
+      - key: NEXT_PUBLIC_INDEXABLE
+        value: "false"
+
+  - type: web
+    name: jesus-in-practice-dashboard-preview
+    runtime: node
+    plan: free
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: >-
+      npx --yes pnpm@10.26.0 install --frozen-lockfile --prod=false &&
+      npx --yes pnpm@10.26.0 --filter @jesus-in-practice/dashboard build
+    startCommand: npx --yes pnpm@10.26.0 --filter @jesus-in-practice/dashboard start:host
+    healthCheckPath: /api/health
+    maxShutdownDelaySeconds: 90
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: NEXT_PUBLIC_SITE_URL
+        fromService:
+          type: web
+          name: jesus-in-practice-website-preview
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_DASHBOARD_URL
+        fromService:
+          type: web
+          name: jesus-in-practice-dashboard-preview
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: APP_ORIGIN
+        fromService:
+          type: web
+          name: jesus-in-practice-dashboard-preview
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_APP_MODE
+        value: preview
+      - key: NEXT_PUBLIC_INDEXABLE
+        value: "false"
+      - key: ENABLE_EMAIL_DELIVERY
+        value: "false"
+      - key: ENABLE_PHONE_VERIFICATION
+        value: "false"
+      - key: ENABLE_SMS_DELIVERY
+        value: "false"
+      - key: ENABLE_PAYMENTS
+        value: "false"
+      - key: STRIPE_LIVE_MODE
+        value: "false"
+      - key: COMMERCE_POLICY_APPROVED
+        value: "false"
+      - key: CONTENT_RIGHTS_ENABLED
+        value: "false"
+      - key: ENABLE_AI_DRAFTING
+        value: "false"
+      - key: ENABLE_RETENTION
+        value: "false"

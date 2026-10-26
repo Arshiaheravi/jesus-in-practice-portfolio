@@ -1,0 +1,142 @@
+.operator-shell {
+  min-height: 100vh;
+}
+.operator-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 24px clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid var(--border);
+}
+.operator-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 72px;
+}
+.operator-nav {
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.operator-access {
+  max-width: 680px;
+  margin: 32px auto;
+}
+.operator-access .button,
+.operator-access form,
+.operator-access details {
+  margin-top: 24px;
+}
+.operator-enrollment {
+  margin: 24px 0;
+}
+.operator-enrollment img {
+  background: white;
+  border-radius: 8px;
+}
+.operator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.operator-stack {
+  display: grid;
+  gap: 24px;
+}
+.operator-stack > .panel,
+.operator-record {
+  min-width: 0;
+}
+.operator-record {
+  display: grid;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.operator-record:last-child {
+  border-bottom: 0;
+}
+.operator-id {
+  overflow-wrap: anywhere;
+  font-size: 0.83rem;
+}
+.operator-meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  color: var(--muted);
+}
+.operator-list {
+  list-style: none;
+  padding: 0;
+}
+.operator-list > li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.operator-list > li:last-child {
+  border-bottom: 0;
+}
+.operator-form {
+  display: grid;
+  gap: 20px;
+}
+.operator-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.operator-form fieldset {
+  display: grid;
+  gap: 12px;
+}
+.operator-form legend {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.operator-form .check-label {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-weight: 400;
+}
+.operator-form .check-label input {
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.operator-review-copy {
+  white-space: pre-wrap;
+}
+.operator-note {
+  padding: 16px;
+  background: var(--soft);
+  border-radius: 8px;
+}
+@media (max-width: 760px) {
+  .operator-grid {
+    grid-template-columns: 1fr;
+  }
+  .operator-header {
+    padding: 20px;
+    align-items: flex-start;
+  }
+  .operator-header > .text-link {
+    font-size: 0.85rem;
+  }
+  .operator-main {
+    padding: 24px 16px 48px;
+  }
+  .operator-nav {
+    gap: 0;
+  }
+  .operator-nav a {
+    padding: 12px;
+  }
+  .operator-list > li {
+    flex-wrap: wrap;
+  }
+}

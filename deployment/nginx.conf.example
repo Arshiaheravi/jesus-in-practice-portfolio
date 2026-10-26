@@ -1,0 +1,38 @@
+# Merge into an approved TLS host configuration; replace server names/certificate paths.
+# Do not run these placeholder names as a production configuration.
+limit_req_zone $binary_remote_addr zone=jip_auth:10m rate=10r/m;
+upstream jip_website { server 127.0.0.1:3000; }
+upstream jip_dashboard { server 127.0.0.1:3001; }
+server {
+  listen 443 ssl;
+  server_name REPLACE_PUBLIC_HOST;
+  ssl_certificate /etc/ssl/REPLACE/fullchain.pem;
+  ssl_certificate_key /etc/ssl/REPLACE/privkey.pem;
+  client_max_body_size 1m;
+  client_body_timeout 15s;
+  location / {
+    proxy_pass http://jip_website;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_buffering off;
+  }
+}
+server {
+  listen 443 ssl;
+  server_name REPLACE_MEMBER_HOST;
+  ssl_certificate /etc/ssl/REPLACE/fullchain.pem;
+  ssl_certificate_key /etc/ssl/REPLACE/privkey.pem;
+  client_max_body_size 1m;
+  client_body_timeout 15s;
+  proxy_read_timeout 65s;
+  proxy_set_header Host $host;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header X-Forwarded-Proto https;
+  proxy_buffering off;
+  location /api/auth/ {
+    limit_req zone=jip_auth burst=5 nodelay;
+    proxy_pass http://jip_dashboard;
+  }
+  location / { proxy_pass http://jip_dashboard; }
+}

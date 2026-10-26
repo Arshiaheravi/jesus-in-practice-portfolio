@@ -1,0 +1,1159 @@
+/* Each direction is intentionally fixed to its designed mode for comparison.
+   :has scopes the site shell; normal pages and the gallery retain their theme. */
+:root:has(.design-home[data-design="vespers"]) {
+  color-scheme: dark;
+  --paper: #142330;
+  --surface: #192c3b;
+  --ink: #f6f4ed;
+  --muted: #c2ced5;
+  --primary: #e5c78f;
+  --primary-hover: #f4dbad;
+  --on-primary: #142330;
+  --accent: #e5c78f;
+  --line: #40505a;
+  --control-border: #8e9c9f;
+  --tint: #223845;
+  --soft: #20323f;
+  --error: #ffb4a9;
+}
+:root:has(.design-home[data-design="olive"]) {
+  color-scheme: light;
+  --paper: #f4f1e8;
+  --surface: #fcfbf6;
+  --ink: #262c23;
+  --muted: #5b6354;
+  --primary: #3e4a36;
+  --primary-hover: #2d3926;
+  --on-primary: #fff;
+  --accent: #3e4a36;
+  --line: #c9cebc;
+  --control-border: #7d866f;
+  --tint: #e5e8dc;
+  --soft: #eceee3;
+  --error: #a12626;
+}
+:root:has(.design-home[data-design="light"]) {
+  color-scheme: light;
+  --paper: #fff;
+  --surface: #fff;
+  --ink: #182125;
+  --muted: #505f63;
+  --primary: #075e63;
+  --primary-hover: #03464a;
+  --on-primary: #fff;
+  --accent: #075e63;
+  --line: #d0dedc;
+  --control-border: #748c8b;
+  --tint: #e3f2ef;
+  --soft: #f3f7f6;
+  --error: #a12626;
+}
+:root:has(.design-home[data-design="living"]) {
+  color-scheme: light;
+  --paper: #fff6ec;
+  --surface: #fffdf9;
+  --ink: #30221d;
+  --muted: #735e51;
+  --primary: #9b3f29;
+  --primary-hover: #80301c;
+  --on-primary: #fff;
+  --accent: #9b3f29;
+  --line: #dfc6b2;
+  --control-border: #a58068;
+  --tint: #f7e4d4;
+  --soft: #fbefe3;
+  --error: #a12626;
+}
+:root:has(.design-home[data-design="light"]) .brand,
+:root:has(.design-home[data-design="living"]) .brand {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 750;
+}
+:root:has(.design-home[data-design="light"]) .brand-mark {
+  border-radius: 0;
+}
+:root:has(.design-home[data-design="living"]) .brand-mark {
+  border-radius: 12px;
+}
+:root:has(.design-home[data-design="living"]) .site-header .button {
+  border-radius: 100px;
+}
+.design-home {
+  overflow: clip;
+}
+.design-home :is(h1, h2, h3, p, figure, div) {
+  min-width: 0;
+}
+.design-home :is(h1, h2, h3) {
+  text-wrap: balance;
+}
+.design-home .design-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 44px;
+}
+.design-home .design-actions svg,
+.design-home .design-invitation-actions .button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.design-home .design-photo-credit {
+  font-size: 0.75rem;
+  line-height: 1.7;
+}
+.design-home .design-photo-credit a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.design-home .design-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+.design-home .design-section-heading h2 {
+  max-width: 630px;
+}
+.design-home .design-section-heading > p {
+  max-width: 370px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.85;
+}
+.design-home .design-lesson,
+.design-home .design-collection,
+.design-home .design-rhythm {
+  padding-block: 88px;
+}
+.design-home .design-rhythm-inner {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 100px;
+}
+.design-home .design-rhythm-heading > .text-link {
+  margin-top: 24px;
+}
+.design-home .design-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.design-home .design-steps li {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding-block: 27px;
+}
+.design-home .design-steps li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.design-home .design-step-number {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 650;
+  padding-top: 4px;
+}
+.design-home .design-steps h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+.design-home .design-steps p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+.design-home .design-invitation {
+  padding-block: 76px;
+}
+.design-home .design-invitation > .container {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr;
+  align-items: center;
+  gap: 85px;
+}
+.design-home .design-invitation h2 {
+  max-width: 650px;
+}
+.design-home .design-invitation-copy > p:last-child {
+  max-width: 570px;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-top: 22px;
+}
+.design-home .design-invitation-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.design-home .design-invitation-actions .fine-print {
+  font-size: 0.8rem;
+}
+
+/* Vespers: a cinematic photograph and a quiet, light reading surface. */
+.design-home[data-design="vespers"] .vespers-hero {
+  position: relative;
+  min-height: 650px;
+  background: #142330;
+  isolation: isolate;
+}
+.design-home[data-design="vespers"] .vespers-image-frame {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 67%;
+  z-index: -1;
+}
+.design-home[data-design="vespers"] .vespers-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 40%, #14233055 72%, #142330 100%);
+}
+.design-home[data-design="vespers"] .vespers-hero-image {
+  object-fit: cover;
+  object-position: 35% center;
+}
+.design-home[data-design="vespers"] .vespers-hero-inner {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 650px;
+  align-items: center;
+}
+.design-home[data-design="vespers"] .vespers-hero-copy {
+  width: 48%;
+  padding-block: 55px 70px;
+  padding-left: 25px;
+}
+.design-home[data-design="vespers"] .vespers-hero h1 {
+  font-size: clamp(3rem, 4.7vw, 4.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  margin-bottom: 28px;
+}
+.design-home[data-design="vespers"] .vespers-hero h1 em {
+  color: #e5c78f;
+  font-weight: 400;
+}
+.design-home[data-design="vespers"] .vespers-hero-copy > p:not(.eyebrow) {
+  max-width: 465px;
+  font-size: 1.03rem;
+  line-height: 1.9;
+  color: #e0e5e7;
+}
+.design-home[data-design="vespers"] .design-actions {
+  gap: 12px;
+}
+.design-home[data-design="vespers"] .button {
+  border-radius: 0;
+}
+.design-home[data-design="vespers"] .vespers-photo-credit {
+  position: absolute;
+  bottom: 17px;
+  left: 28px;
+  max-width: calc(100% - 56px);
+  color: #fff;
+  background: #142330e8;
+  padding: 6px 12px;
+}
+.design-home[data-design="vespers"] .vespers-purpose {
+  padding-block: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: 1.08rem;
+  color: #e5c78f;
+}
+.design-home[data-design="vespers"] .design-lesson {
+  color-scheme: light;
+  --paper: #f6f4ed;
+  --surface: #fffef9;
+  --ink: #142330;
+  --muted: #53606a;
+  --primary: #203d50;
+  --primary-hover: #142330;
+  --on-primary: #fff;
+  --line: #d4d9d7;
+  --control-border: #73818a;
+  --tint: #e9edeb;
+  --soft: #f0f1e9;
+  color: var(--ink);
+  background: var(--paper);
+}
+.design-home[data-design="vespers"] .design-lesson .message-preview {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.design-home[data-design="vespers"] .message-card {
+  border-radius: 0;
+  padding: 35px;
+  border-top: 3px solid #203d50;
+}
+.design-home[data-design="vespers"] .practice-card {
+  border-radius: 0;
+  background: transparent;
+  border-width: 1px 0 0;
+  padding-inline: 0;
+}
+.design-home[data-design="vespers"] .practices-grid {
+  gap: 46px;
+}
+.design-home[data-design="vespers"] .design-rhythm {
+  background: #1b2f3d;
+  border-block: 1px solid var(--line);
+}
+.design-home[data-design="vespers"] .design-invitation h2 {
+  font-style: italic;
+  color: #e5c78f;
+}
+
+/* Olive & Stone: a printed journal, marginal notes, and a ruled index. */
+.design-home[data-design="olive"] .olive-journal {
+  padding-top: 34px;
+  padding-bottom: 74px;
+}
+.design-home[data-design="olive"] .olive-masthead {
+  border-block: 1px solid var(--control-border);
+  padding-block: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: var(--primary);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.design-home[data-design="olive"] .olive-journal h1 {
+  font-size: clamp(2.9rem, 5.6vw, 5.1rem);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.1;
+  padding-block: 46px 50px;
+}
+.design-home[data-design="olive"] .olive-journal h1 em {
+  font-weight: 400;
+  color: var(--primary);
+}
+.design-home[data-design="olive"] .olive-editorial {
+  display: grid;
+  grid-template-columns: 0.48fr 1.2fr 1fr;
+  gap: 37px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-top: 34px;
+}
+.design-home[data-design="olive"] .olive-index {
+  padding-top: 7px;
+}
+.design-home[data-design="olive"] .olive-index .eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+.design-home[data-design="olive"] .olive-index > a {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  min-height: 44px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.design-home[data-design="olive"] .olive-index > a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.design-home[data-design="olive"] .olive-margin-note {
+  font-family: var(--font-lora), Georgia, serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-top: 35px;
+  max-width: 150px;
+}
+.design-home[data-design="olive"] .olive-introduction {
+  padding: 4px 9px 0 0;
+}
+.design-home[data-design="olive"] .olive-introduction > p:not(.fine-print) {
+  font-family: var(--font-lora), Georgia, serif;
+  font-size: 1.06rem;
+  line-height: 1.95;
+  margin-bottom: 19px;
+}
+.design-home[data-design="olive"] .olive-dropcap::first-letter {
+  float: left;
+  font-size: 4.6rem;
+  line-height: 0.95;
+  padding-right: 9px;
+  padding-top: 6px;
+  color: var(--primary);
+}
+.design-home[data-design="olive"] .olive-introduction .fine-print {
+  margin-top: 20px;
+}
+.design-home[data-design="olive"] .design-actions {
+  align-items: flex-start;
+  gap: 12px;
+}
+.design-home[data-design="olive"] .button {
+  border-radius: 0;
+  padding-inline: 18px;
+}
+.design-home[data-design="olive"] .olive-photo {
+  margin: 0;
+}
+.design-home[data-design="olive"] .olive-photo img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  object-position: center 43%;
+  border: 7px solid var(--surface);
+  outline: 1px solid var(--line);
+}
+.design-home[data-design="olive"] .design-lesson {
+  border-block: 1px solid var(--line);
+  background: #e9ecdf;
+}
+.design-home[data-design="olive"] .message-preview {
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+.design-home[data-design="olive"] .message-card {
+  border-radius: 0;
+  border-color: #abb59d;
+  padding: 35px;
+  box-shadow: 6px 6px 0 #d5d8c9;
+}
+.design-home[data-design="olive"] .lesson-block {
+  border-radius: 0;
+  background: transparent;
+  border-width: 0 0 1px;
+  padding: 15px 0 22px;
+}
+.design-home[data-design="olive"] .lesson-grid {
+  gap: 24px 40px;
+}
+.design-home[data-design="olive"] .lesson-block.action {
+  border-left: 2px solid var(--primary);
+  padding-left: 20px;
+}
+.design-home[data-design="olive"] .olive-practices {
+  padding-block: 82px;
+}
+.design-home[data-design="olive"] .olive-practice-list article {
+  display: grid;
+  grid-template-columns: 0.55fr 1fr 1.3fr auto;
+  gap: 32px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding-block: 30px;
+}
+.design-home[data-design="olive"] .olive-practice-list article:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.design-home[data-design="olive"] .olive-practice-category {
+  display: flex;
+  gap: 15px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  padding-top: 5px;
+}
+.design-home[data-design="olive"] .olive-practice-category span {
+  color: var(--muted);
+}
+.design-home[data-design="olive"] .olive-practice-list h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+.design-home[data-design="olive"] .olive-practice-list article > div > a {
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.design-home[data-design="olive"] .olive-practice-list article > p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+.design-home[data-design="olive"] .olive-read-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.design-home[data-design="olive"] .design-rhythm {
+  border-bottom: 1px solid var(--line);
+  padding-top: 0;
+}
+.design-home[data-design="olive"] .design-invitation {
+  background: #e5e8dc;
+}
+.design-home[data-design="olive"] .design-invitation h2 {
+  font-style: italic;
+}
+
+/* Clear Light: bold sans type, a source-first photo strip, and an open lesson. */
+.design-home[data-design="light"] :is(h1, h2, h3),
+.design-home[data-design="living"] :is(h1, h2, h3) {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 750;
+}
+.design-home[data-design="light"] .light-hero {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding-block: 76px 60px;
+}
+.design-home[data-design="light"] .light-hero h1 {
+  font-size: clamp(3rem, 5.35vw, 5rem);
+  line-height: 1.04;
+  letter-spacing: -0.072em;
+  margin-bottom: 26px;
+}
+.design-home[data-design="light"] .light-hero h1 span {
+  color: var(--primary);
+}
+.design-home[data-design="light"] .light-hero-copy > p:not(.eyebrow) {
+  max-width: 520px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.design-home[data-design="light"] .button {
+  border-radius: 0;
+}
+.design-home[data-design="light"] .light-photo {
+  margin: 0;
+  border-top: 4px solid var(--primary);
+}
+.design-home[data-design="light"] .light-photo-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding-block: 17px;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+.design-home[data-design="light"] .light-photo img {
+  width: 100%;
+  aspect-ratio: 1.4;
+  object-fit: cover;
+}
+.design-home[data-design="light"] .light-learning-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--line);
+  padding-block: 22px;
+  gap: 30px;
+}
+.design-home[data-design="light"] .light-learning-strip > span {
+  display: flex;
+  gap: 18px;
+  font-size: 0.85rem;
+  align-items: center;
+}
+.design-home[data-design="light"] .light-learning-strip b {
+  font-size: 0.75rem;
+  color: var(--primary);
+}
+.design-home[data-design="light"] .design-lesson {
+  padding-top: 68px;
+}
+.design-home[data-design="light"] .message-preview {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.design-home[data-design="light"] .message-card {
+  border: 0;
+  border-radius: 0;
+  padding: 30px;
+  background: var(--soft);
+}
+.design-home[data-design="light"] .lesson-block {
+  border-radius: 0;
+  background: #fff;
+}
+.design-home[data-design="light"] .lesson-block.action {
+  background: var(--tint);
+}
+.design-home[data-design="light"] .design-rhythm {
+  --primary: #c8eee6;
+  --line: #4c8382;
+  --muted: #d3e9e5;
+  background: #075e63;
+  color: #fff;
+}
+.design-home[data-design="light"] .design-rhythm h2 {
+  max-width: 340px;
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  line-height: 1.12;
+}
+.design-home[data-design="light"] .practice-card {
+  border-radius: 0;
+  border: 0;
+  padding-inline: 0;
+  border-top: 3px solid var(--primary);
+}
+.design-home[data-design="light"] .practices-grid {
+  gap: 45px;
+}
+.design-home[data-design="light"] .design-invitation {
+  background: var(--tint);
+  border-top: 1px solid var(--line);
+}
+
+/* Living Faith: generous rounded forms, a garden portrait, and everyday warmth. */
+.design-home[data-design="living"] .living-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 85px;
+  align-items: center;
+  padding-block: 55px 67px;
+}
+.design-home[data-design="living"] .living-welcome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.design-home[data-design="living"] .living-welcome svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.design-home[data-design="living"] .living-hero h1 {
+  font-size: clamp(3rem, 5.2vw, 4.7rem);
+  line-height: 1.04;
+  letter-spacing: -0.065em;
+  margin-bottom: 25px;
+  font-weight: 800;
+}
+.design-home[data-design="living"] .living-hero h1 span {
+  color: var(--primary);
+}
+.design-home[data-design="living"] .living-hero-copy > p:not(.living-welcome) {
+  color: var(--muted);
+  max-width: 505px;
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+.design-home[data-design="living"] .button {
+  border-radius: 100px;
+}
+.design-home[data-design="living"] .living-reassurance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.design-home[data-design="living"] .living-reassurance svg {
+  color: var(--primary);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.design-home[data-design="living"] .living-photo-composition {
+  position: relative;
+  padding-bottom: 32px;
+}
+.design-home[data-design="living"] .living-photo {
+  margin: 0;
+}
+.design-home[data-design="living"] .living-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 0.81;
+  object-fit: cover;
+  object-position: center 45%;
+  border-radius: 46% 46% 24px 24px;
+  border: 9px solid #f0d1bb;
+}
+.design-home[data-design="living"] .living-photo figcaption {
+  color: var(--muted);
+  margin-top: 13px;
+  padding-inline: 15px;
+}
+.design-home[data-design="living"] .living-practice-note {
+  position: absolute;
+  bottom: 110px;
+  left: -42px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 23px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 14px 35px #553b1921;
+}
+.design-home[data-design="living"] .living-practice-note > svg:first-child {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+.design-home[data-design="living"] .living-practice-note > div {
+  display: grid;
+  gap: 3px;
+}
+.design-home[data-design="living"] .living-practice-note span {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.design-home[data-design="living"] .living-practice-note strong {
+  font-size: 0.94rem;
+}
+.design-home[data-design="living"] .living-moments {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding-block: 0 58px;
+}
+.design-home[data-design="living"] .living-moments > span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-right: 8px;
+}
+.design-home[data-design="living"] .living-moments > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  font-size: 0.85rem;
+  font-weight: 550;
+  padding: 10px 22px;
+  border-radius: 100px;
+  background: #f7e4d4;
+  border: 1px solid #dfbea5;
+}
+.design-home[data-design="living"] .living-moments > a:hover {
+  background: #efcfb6;
+}
+.design-home[data-design="living"] .living-moments svg {
+  color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+.design-home[data-design="living"] .design-lesson {
+  background: #fffdf9;
+}
+.design-home[data-design="living"] .design-lesson .design-section-heading {
+  display: block;
+  text-align: center;
+  max-width: 730px;
+  margin-inline: auto;
+}
+.design-home[data-design="living"] .design-lesson .design-section-heading :is(h2, p) {
+  max-width: none;
+}
+.design-home[data-design="living"] .design-lesson .design-section-heading > p {
+  margin-top: 22px;
+}
+.design-home[data-design="living"] .message-preview {
+  border-radius: 24px;
+  border: 1px solid #ead7c9;
+  padding: 32px;
+}
+.design-home[data-design="living"] .message-card {
+  border-radius: 16px;
+}
+.design-home[data-design="living"] .lesson-block {
+  border-radius: 12px;
+}
+.design-home[data-design="living"] .design-rhythm-inner {
+  display: block;
+}
+.design-home[data-design="living"] .design-rhythm-heading {
+  max-width: 630px;
+  margin-bottom: 45px;
+}
+.design-home[data-design="living"] .design-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+.design-home[data-design="living"] .design-steps li {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.design-home[data-design="living"] .design-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  background: #efc4a7;
+  color: #71321f;
+  padding: 0;
+  margin-bottom: 21px;
+}
+.design-home[data-design="living"] .design-steps h3 {
+  font-size: 1.1rem;
+}
+.design-home[data-design="living"] .design-collection {
+  padding-top: 15px;
+}
+.design-home[data-design="living"] .practice-card {
+  border-radius: 22px;
+  padding: 29px;
+}
+.design-home[data-design="living"] .design-invitation {
+  --primary: #fff6ec;
+  --primary-hover: #f7dfcc;
+  --on-primary: #7c2d1c;
+  --muted: #ffeadb;
+  background: #9b3f29;
+  color: #fff;
+  padding-block: 82px;
+}
+.design-home[data-design="living"] .design-invitation > .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+.design-home[data-design="living"] .design-invitation-copy > p:last-child {
+  margin-inline: auto;
+}
+.design-home[data-design="living"] .design-invitation-actions {
+  align-items: center;
+}
+
+@media (min-width: 1600px) {
+  .design-home[data-design="vespers"] .vespers-image-frame {
+    width: 62%;
+  }
+}
+@media (max-width: 1100px) {
+  .design-home .design-rhythm-inner,
+  .design-home .design-invitation > .container {
+    gap: 55px;
+  }
+  .design-home[data-design="vespers"] .vespers-hero-copy {
+    width: 51%;
+    padding-left: 10px;
+  }
+  .design-home[data-design="vespers"] .vespers-image-frame {
+    width: 65%;
+  }
+  .design-home[data-design="olive"] .olive-editorial {
+    grid-template-columns: 1fr 0.85fr;
+    gap: 30px;
+  }
+  .design-home[data-design="olive"] .olive-index {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 25px;
+    padding: 0 0 15px;
+    border-bottom: 1px solid var(--line);
+  }
+  .design-home[data-design="olive"] .olive-index .eyebrow {
+    margin: 0;
+  }
+  .design-home[data-design="olive"] .olive-index > a {
+    border: 0;
+  }
+  .design-home[data-design="olive"] .olive-margin-note {
+    display: none;
+  }
+  .design-home[data-design="olive"] .olive-practice-list article {
+    grid-template-columns: 0.7fr 1.2fr 1.2fr;
+    gap: 20px;
+  }
+  .design-home[data-design="olive"] .olive-read-link {
+    grid-column: 2;
+  }
+  .design-home[data-design="light"] .light-hero {
+    gap: 35px;
+  }
+  .design-home[data-design="living"] .living-hero {
+    gap: 45px;
+  }
+  .design-home[data-design="living"] .living-practice-note {
+    left: -20px;
+    gap: 12px;
+    padding: 17px;
+  }
+  .design-home[data-design="living"] .living-practice-note > svg:last-child {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .design-home[data-design="vespers"] .vespers-hero {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .design-home[data-design="vespers"] .vespers-image-frame {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 1600/1060;
+    max-height: 510px;
+  }
+  .design-home[data-design="vespers"] .vespers-image-frame::after {
+    background: linear-gradient(transparent 80%, #142330 100%);
+  }
+  .design-home[data-design="vespers"] .vespers-hero-inner {
+    min-height: 0;
+  }
+  .design-home[data-design="vespers"] .vespers-hero-copy {
+    width: 100%;
+    padding: 35px 0 30px;
+  }
+  .design-home[data-design="vespers"] .vespers-hero h1 {
+    font-size: clamp(2.8rem, 7vw, 4.4rem);
+  }
+  .design-home[data-design="vespers"] .vespers-hero-copy > p:not(.eyebrow) {
+    max-width: 650px;
+  }
+  .design-home[data-design="vespers"] .vespers-photo-credit {
+    position: static;
+    padding: 0 0 25px;
+    width: min(1220px, calc(100% - 80px));
+    max-width: none;
+    margin-inline: auto;
+    background: transparent;
+  }
+  .design-home .design-section-heading {
+    gap: 30px;
+  }
+  .design-home .design-section-heading > p {
+    max-width: 300px;
+  }
+  .design-home .design-rhythm-inner,
+  .design-home .design-invitation > .container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .design-home .design-rhythm-heading h2 {
+    max-width: 580px;
+  }
+  .design-home[data-design="light"] .light-hero {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 25px;
+    padding-top: 54px;
+  }
+  .design-home[data-design="light"] .light-hero h1 {
+    font-size: 3.1rem;
+  }
+  .design-home[data-design="light"] .design-rhythm h2 {
+    max-width: none;
+    font-size: 2.8rem;
+  }
+  .design-home[data-design="living"] .living-hero h1 {
+    font-size: 3.15rem;
+  }
+  .design-home[data-design="living"] .living-hero {
+    gap: 28px;
+  }
+  .design-home[data-design="living"] .living-photo img {
+    aspect-ratio: 0.7;
+  }
+  .design-home[data-design="living"] .living-practice-note {
+    position: static;
+    margin-top: 16px;
+    padding: 16px;
+  }
+  .design-home[data-design="living"] .living-photo-composition {
+    padding: 0;
+  }
+  .design-home[data-design="living"] .design-steps {
+    gap: 28px;
+  }
+  .design-home[data-design="vespers"] .practices-grid,
+  .design-home[data-design="light"] .practices-grid {
+    gap: 26px;
+  }
+}
+@media (max-width: 700px) {
+  .design-home .design-lesson,
+  .design-home .design-collection,
+  .design-home .design-rhythm,
+  .design-home .design-invitation {
+    padding-block: 55px;
+  }
+  .design-home .design-section-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .design-home .design-section-heading > p {
+    max-width: 600px;
+    margin-top: 22px;
+  }
+  .design-home .design-section-heading > a {
+    margin-top: 17px;
+  }
+  .design-home .design-invitation h2 {
+    font-size: 2rem;
+  }
+  .design-home .practices-grid {
+    grid-template-columns: 1fr;
+  }
+  .design-home[data-design="vespers"] .vespers-purpose {
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .design-home[data-design="vespers"] .message-card,
+  .design-home[data-design="olive"] .message-card {
+    padding: 23px;
+  }
+  .design-home[data-design="olive"] .olive-journal {
+    padding-block: 25px 48px;
+  }
+  .design-home[data-design="olive"] .olive-masthead {
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+    font-size: 0.75rem;
+  }
+  .design-home[data-design="olive"] .olive-journal h1 {
+    font-size: clamp(2.45rem, 7.5vw, 3.5rem);
+    padding-block: 35px;
+  }
+  .design-home[data-design="olive"] .olive-editorial {
+    grid-template-columns: 1fr;
+  }
+  .design-home[data-design="olive"] .olive-index {
+    gap: 4px 22px;
+  }
+  .design-home[data-design="olive"] .olive-index .eyebrow {
+    flex-basis: 100%;
+    margin-bottom: 5px;
+  }
+  .design-home[data-design="olive"] .olive-introduction {
+    padding-right: 0;
+  }
+  .design-home[data-design="olive"] .olive-photo img {
+    aspect-ratio: 1.1;
+    object-position: center 42%;
+  }
+  .design-home[data-design="olive"] .olive-practices {
+    padding-block: 55px;
+  }
+  .design-home[data-design="olive"] .olive-practice-list article {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .design-home[data-design="olive"] .olive-read-link {
+    grid-column: auto;
+  }
+  .design-home[data-design="light"] .light-hero {
+    grid-template-columns: 1fr;
+    gap: 38px;
+    padding-block: 45px 35px;
+  }
+  .design-home[data-design="light"] .light-hero h1 {
+    font-size: clamp(2.75rem, 9vw, 4rem);
+  }
+  .design-home[data-design="light"] .light-photo img {
+    aspect-ratio: 1.8;
+  }
+  .design-home[data-design="light"] .light-learning-strip {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .design-home[data-design="light"] .message-card {
+    padding: 23px;
+  }
+  .design-home[data-design="living"] .living-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 38px 32px;
+  }
+  .design-home[data-design="living"] .living-hero h1 {
+    font-size: clamp(3rem, 10vw, 4rem);
+  }
+  .design-home[data-design="living"] .living-photo-composition {
+    max-width: 460px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .design-home[data-design="living"] .living-photo img {
+    aspect-ratio: 0.9;
+    border-width: 7px;
+  }
+  .design-home[data-design="living"] .living-practice-note {
+    margin-inline: 10px;
+  }
+  .design-home[data-design="living"] .living-moments {
+    gap: 11px;
+    justify-content: flex-start;
+    padding-bottom: 38px;
+  }
+  .design-home[data-design="living"] .living-moments > span {
+    flex-basis: 100%;
+  }
+  .design-home[data-design="living"] .living-moments > a {
+    padding: 9px 16px;
+  }
+  .design-home[data-design="living"] .message-preview {
+    padding: 20px;
+    border-radius: 18px;
+  }
+  .design-home[data-design="living"] .message-card {
+    padding: 22px;
+  }
+  .design-home[data-design="living"] .design-steps {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .design-home[data-design="living"] .design-steps li {
+    display: grid;
+    grid-template-columns: 43px 1fr;
+    gap: 18px;
+  }
+  .design-home[data-design="living"] .design-step-number {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 600px) {
+  .design-home[data-design="vespers"] .vespers-photo-credit {
+    width: calc(100% - 40px);
+  }
+}
+@media (max-width: 380px) {
+  .design-home .design-actions {
+    align-items: stretch;
+  }
+  .design-home .design-actions .button {
+    width: 100%;
+  }
+  .design-home .design-invitation-actions .button {
+    padding-inline: 15px;
+    font-size: 0.8rem;
+    white-space: normal;
+  }
+  .design-home[data-design="living"] .message-preview {
+    padding: 14px;
+  }
+  .design-home[data-design="living"] .message-card {
+    padding: 17px;
+  }
+}

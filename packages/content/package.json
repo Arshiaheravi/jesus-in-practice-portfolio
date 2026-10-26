@@ -1,0 +1,13 @@
+{
+  "name": "@jesus-in-practice/content",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Original practical scripture reflections shared by the website and member preview.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "node --experimental-strip-types --test src/index.test.ts"
+  }
+}

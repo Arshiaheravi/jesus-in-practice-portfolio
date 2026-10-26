@@ -1,0 +1,47 @@
+{
+  "name": "jesus-in-practice",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Website and member dashboard for Jesus in Practice.",
+  "packageManager": "pnpm@10.26.0",
+  "engines": {
+    "node": ">=22.13.0 <23 || >=24.0.0 <25"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @jesus-in-practice/website --filter @jesus-in-practice/dashboard dev",
+    "dev:website": "pnpm --filter @jesus-in-practice/website dev",
+    "dev:dashboard": "pnpm --filter @jesus-in-practice/dashboard dev",
+    "preview": "pnpm --parallel --filter @jesus-in-practice/website --filter @jesus-in-practice/dashboard start",
+    "build": "pnpm -r --workspace-concurrency=1 build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "test": "pnpm -r --if-present test",
+    "test:e2e": "playwright test",
+    "test:e2e:live": "playwright test --config=playwright.live.config.ts",
+    "release:preflight": "node --experimental-strip-types scripts/release-preflight.mjs",
+    "db:migrate": "pnpm --filter @jesus-in-practice/backend migrate",
+    "db:check": "pnpm --filter @jesus-in-practice/backend db:check",
+    "operator:access": "pnpm --filter @jesus-in-practice/backend operator:access",
+    "content:manage": "pnpm --filter @jesus-in-practice/backend content:manage",
+    "ops:monitor": "node scripts/ops-monitor.mjs",
+    "ops:scheduler": "node scripts/ops-scheduler.mjs",
+    "ops:retention": "node --experimental-strip-types scripts/ops-retention.mjs",
+    "ops:backup": "node scripts/ops-backup.mjs",
+    "ops:restore": "node scripts/ops-restore.mjs",
+    "test:postgres": "pnpm --filter @jesus-in-practice/backend exec node --experimental-strip-types --test tests/postgres-integration.mjs",
+    "test:db:prepare": "node scripts/prepare-test-postgres.mjs --run",
+    "test:postgres:local": "node scripts/ops-postgres-test.mjs --run --connection-file .local/test-postgres/connection.json",
+    "test:http:local": "node --experimental-strip-types scripts/http-postgres-check.mjs --run --connection-file .local/test-postgres/connection.json",
+    "test:recovery:local": "node --experimental-strip-types scripts/ops-local-drill.mjs --run --connection-file .local/test-postgres/connection.json",
+    "test:http-postgres": "node --experimental-strip-types scripts/http-postgres-check.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "prettier": "3.9.10"
+  }
+}

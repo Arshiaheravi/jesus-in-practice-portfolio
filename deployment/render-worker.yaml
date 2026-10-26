@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# OPTIONAL SEPARATE BLUEPRINT. Applying it starts a paid scheduler immediately.
+# Do not apply until live database, callbacks and operations gates are verified.
+previews:
+  generation: "off"
+
+services:
+  - type: worker
+    name: jesus-in-practice-scheduler
+    runtime: node
+    plan: 0.5c-512mb
+    region: ohio
+    autoDeployTrigger: "off"
+    buildCommand: node --check scripts/ops-scheduler.mjs && node --check scripts/ops-common.mjs
+    startCommand: node scripts/ops-scheduler.mjs
+    envVars:
+      - key: NODE_VERSION
+        value: 22.23.3
+      - key: NODE_ENV
+        value: production
+      - key: SKIP_INSTALL_DEPS
+        value: "true"
+      - key: APP_ORIGIN
+        value: https://app.example.com
+      # Enter the dashboard's existing CRON_SECRET; do not generate another value.
+      - key: CRON_SECRET
+        sync: false

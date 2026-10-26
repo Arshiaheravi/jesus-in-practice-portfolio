@@ -1,0 +1,19 @@
+# Disposable synthetic fixtures only; this does not run Supabase Auth or the app.
+# The known password is public and must never be used for a real database.
+name: jesus-in-practice-tests
+services:
+  postgres:
+    image: postgres:17.11@sha256:b8faeff7712663c2773a190181e1246e37e364b887611c04658c28b44e2408fe
+    environment:
+      POSTGRES_DB: jip_fixture
+      POSTGRES_USER: jip_test_admin
+      POSTGRES_PASSWORD: synthetic-ci-only-password
+    ports:
+      - "127.0.0.1:55439:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jip_test_admin -d jip_fixture"]
+      interval: 5s
+      timeout: 5s
+      retries: 10

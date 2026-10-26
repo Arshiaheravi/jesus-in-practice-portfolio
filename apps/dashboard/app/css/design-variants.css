@@ -1,0 +1,782 @@
+/* Comparison-only treatments. The current app has no data-design marker. */
+.dashboard-design-preview .design-comparison-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.dashboard-design-preview .design-comparison-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.dashboard-design-preview .design-comparison-description {
+  max-width: 510px;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.dashboard-design-preview .design-comparison-toolbar nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+.dashboard-design-preview .design-toolbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.dashboard-design-preview .design-toolbar-link svg {
+  width: 14px;
+  height: 14px;
+}
+.dashboard-design-preview .design-switcher {
+  display: flex;
+  gap: 6px;
+}
+.dashboard-design-preview .design-switcher a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--control);
+  border-radius: 4px;
+  color: var(--primary);
+  background: var(--surface);
+}
+.dashboard-design-preview .design-switcher a:hover {
+  color: var(--primary-ink);
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Vespers: a narrow navigation and a portrait beside the reading surface. */
+:root:has([data-design="vespers"]) {
+  --bg: #142330;
+  --surface: #1b3040;
+  --elevated: #21394a;
+  --ink: #f7f2e7;
+  --muted: #c8ccce;
+  --primary: #e5c78f;
+  --primary-hover: #f0d7a8;
+  --primary-ink: #142330;
+  --border: #465b66;
+  --control: #8b9a9f;
+  --accent: #e5c78f;
+  --soft: #2b4050;
+  --tint: #203747;
+  --danger: #ffb0a4;
+  color-scheme: dark;
+}
+[data-design="vespers"] .desktop-sidebar {
+  background: #101e29;
+  padding-inline: 14px;
+}
+[data-design="vespers"] .brand {
+  font-size: 15px;
+  gap: 7px;
+}
+[data-design="vespers"] .brand-mark {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+[data-design="vespers"] .nav-link {
+  padding-inline: 10px;
+  border-radius: 0;
+}
+[data-design="vespers"] .sidebar-note {
+  margin-inline: 0;
+  background: transparent;
+  border: 0;
+  border-block: 1px solid var(--border);
+  padding: 23px 9px;
+}
+[data-design="vespers"] .app-header {
+  min-height: 64px;
+  background: transparent;
+}
+[data-design="vespers"] .preview-banner {
+  background: #101e29;
+}
+[data-design="vespers"] .page-heading h1 {
+  font-style: italic;
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+}
+[data-design="vespers"] .page-heading .eyebrow {
+  color: var(--primary);
+}
+[data-design="vespers"] .setup-callout {
+  background: transparent;
+  border-radius: 0;
+  border-inline: 0;
+  padding-inline: 0;
+}
+[data-design="vespers"] .today-layout {
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 28px;
+}
+[data-design="vespers"] .today-layout > section {
+  grid-column: 2;
+  grid-row: 1;
+}
+[data-design="vespers"] .today-rail {
+  grid-column: 1;
+  grid-row: 1;
+}
+[data-design="vespers"] .today-card {
+  border-radius: 0;
+  border-top-width: 1px;
+}
+[data-design="vespers"] .today-card-body {
+  padding: 34px;
+}
+[data-design="vespers"] .today-card h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+[data-design="vespers"] .lesson-reference {
+  background: transparent;
+  border-inline: 0;
+  border-radius: 0;
+  padding-inline: 0;
+}
+[data-design="vespers"] .lesson-reference-icon {
+  border: 1px solid var(--border);
+}
+[data-design="vespers"] .lesson-action {
+  border-radius: 0;
+  border-color: var(--control);
+}
+[data-design="vespers"] .practice-photo-card {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+[data-design="vespers"] .practice-photo-card img {
+  border: 1px solid var(--border);
+}
+[data-design="vespers"] .practice-photo-card > div {
+  padding: 22px 0;
+}
+[data-design="vespers"] .today-rail .panel {
+  padding: 22px 0;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: transparent;
+}
+
+/* Olive & Stone: a broad journal page with supporting notes beneath it. */
+:root:has([data-design="olive"]) {
+  --bg: #e6e4d8;
+  --surface: #f4f1e8;
+  --elevated: #edeedc;
+  --ink: #30372a;
+  --muted: #59614e;
+  --primary: #3e4a36;
+  --primary-hover: #2b3625;
+  --primary-ink: #ffffff;
+  --border: #c4c9b7;
+  --control: #7e886c;
+  --accent: #87946c;
+  --soft: #e1e5d2;
+  --tint: #e9ecdd;
+  --danger: #a33131;
+  color-scheme: light;
+}
+[data-design="olive"] .desktop-sidebar {
+  background: transparent;
+  padding-top: 38px;
+}
+[data-design="olive"] .brand {
+  font-size: 15px;
+}
+[data-design="olive"] .brand-mark {
+  border-radius: 50% 50% 2px 2px;
+}
+[data-design="olive"] .nav-link {
+  border-radius: 0;
+  padding-inline: 8px;
+  border-bottom: 1px solid var(--border);
+}
+[data-design="olive"] .sidebar-note {
+  background: transparent;
+  border: 0;
+  padding-inline: 5px;
+}
+[data-design="olive"] .app-header {
+  background: transparent;
+}
+[data-design="olive"] .main-content {
+  max-width: 1120px;
+}
+[data-design="olive"] .page-heading {
+  justify-content: center;
+  text-align: center;
+  padding-block: 14px;
+}
+[data-design="olive"] .page-heading h1 {
+  font-style: italic;
+}
+[data-design="olive"] .setup-callout {
+  background: transparent;
+  border: 0;
+  border-block: 1px solid var(--control);
+  border-radius: 0;
+  padding-inline: 0;
+}
+[data-design="olive"] .today-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+[data-design="olive"] .today-card {
+  border-radius: 0;
+  border-top: 1px solid var(--border);
+  box-shadow:
+    0 7px 0 -4px var(--bg),
+    0 8px 0 -4px var(--control);
+}
+[data-design="olive"] .today-card-body {
+  padding: 42px clamp(24px, 5vw, 76px);
+}
+[data-design="olive"] .today-card h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+}
+[data-design="olive"] .lesson-reference {
+  background: transparent;
+  padding: 19px 0;
+  border-radius: 0;
+  border-inline: 0;
+  border-block-color: var(--control);
+}
+[data-design="olive"] .lesson-reference-icon {
+  background: var(--tint);
+}
+[data-design="olive"] .lesson-part p {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--ink);
+}
+[data-design="olive"] .lesson-part {
+  gap: 20px;
+  margin-top: 30px;
+}
+[data-design="olive"] .lesson-number {
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 14px;
+  background: transparent;
+  font-weight: 400;
+}
+[data-design="olive"] .lesson-action {
+  border: 0;
+  border-left: 3px solid var(--primary);
+  border-radius: 0;
+}
+[data-design="olive"] .lesson-action .lesson-number {
+  color: var(--primary);
+  background: transparent;
+}
+[data-design="olive"] .today-rail {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+[data-design="olive"] .practice-photo-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  align-items: center;
+  border: 0;
+  border-block: 1px solid var(--control);
+  border-radius: 0;
+  background: transparent;
+  padding-block: 22px;
+  gap: 14px;
+}
+[data-design="olive"] .practice-photo-card img {
+  width: 170px;
+  height: 255px;
+}
+[data-design="olive"] .practice-photo-card h2 {
+  font-size: 27px;
+}
+[data-design="olive"] .practice-photo-card .photo-credit {
+  border: 0;
+  padding-top: 0;
+}
+[data-design="olive"] .today-rail .panel {
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  padding: 22px 0;
+}
+
+/* Clear Light: a horizontal desktop navigation and a clean Inter reading view. */
+:root:has([data-design="light"]) {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --elevated: #f2f8f8;
+  --ink: #182125;
+  --muted: #526265;
+  --primary: #075e63;
+  --primary-hover: #03494d;
+  --primary-ink: #ffffff;
+  --border: #d9e3e2;
+  --control: #6c8789;
+  --accent: #075e63;
+  --soft: #e3f1ef;
+  --tint: #f2f8f8;
+  --danger: #a33131;
+  color-scheme: light;
+}
+[data-design="light"]
+  :is(h1, h2, h3, .brand, .brand-mark, .lesson-reference strong, .journey-stats strong) {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 600;
+}
+[data-design="light"] .brand {
+  letter-spacing: -0.055em;
+}
+[data-design="light"] .brand-mark {
+  border-radius: 8px;
+}
+[data-design="light"] .brand-light {
+  font-style: normal;
+}
+[data-design="light"] .app-header {
+  min-height: 56px;
+  border: 0;
+}
+[data-design="light"] .main-content {
+  max-width: 1320px;
+}
+[data-design="light"] .page-heading h1 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  letter-spacing: -0.06em;
+}
+[data-design="light"] .setup-callout {
+  background: var(--tint);
+  border: 0;
+  border-radius: 8px;
+}
+[data-design="light"] .today-layout {
+  grid-template-columns: minmax(0, 1fr) 290px;
+  gap: 56px;
+}
+[data-design="light"] .today-card {
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+[data-design="light"] .today-card-body {
+  padding: 16px 0;
+}
+[data-design="light"] .today-card h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  margin-bottom: 30px;
+}
+[data-design="light"] .lesson-reference {
+  border: 0;
+  border-radius: 8px;
+  padding: 22px;
+}
+[data-design="light"] .lesson-part {
+  margin-top: 32px;
+}
+[data-design="light"] .lesson-number {
+  border-radius: 50%;
+}
+[data-design="light"] .lesson-action {
+  border: 1px solid var(--control);
+  border-radius: 8px;
+  background: transparent;
+}
+[data-design="light"] .practice-photo-card {
+  border: 0;
+  border-radius: 0;
+  padding-top: 16px;
+}
+[data-design="light"] .practice-photo-card img {
+  border-radius: 8px;
+  aspect-ratio: 1600 / 1060;
+}
+[data-design="light"] .practice-photo-card > div {
+  padding: 22px 0;
+}
+[data-design="light"] .practice-photo-card h2 {
+  font-size: 21px;
+  letter-spacing: -0.04em;
+}
+[data-design="light"] .today-rail .panel {
+  border-radius: 8px;
+  background: var(--tint);
+  border: 0;
+}
+[data-design="light"] .button {
+  border-radius: 6px;
+}
+
+/* Living Faith: a floating navigation and warm, modular learning cards. */
+:root:has([data-design="living"]) {
+  --bg: #fff6ec;
+  --surface: #fffdf8;
+  --elevated: #faeadc;
+  --ink: #3c2924;
+  --muted: #715548;
+  --primary: #9b3f29;
+  --primary-hover: #7c2e1f;
+  --primary-ink: #ffffff;
+  --border: #e5cdbb;
+  --control: #a17d66;
+  --accent: #d59a51;
+  --soft: #f4dfca;
+  --tint: #faeadc;
+  --danger: #a33131;
+  color-scheme: light;
+}
+[data-design="living"]
+  :is(h1, .today-card h2, .brand, .brand-mark, .today-rail h2, .journey-stats strong) {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 700;
+}
+[data-design="living"] .brand {
+  font-size: 15px;
+  letter-spacing: -0.055em;
+}
+[data-design="living"] .brand-mark {
+  border-radius: 12px 12px 12px 2px;
+}
+[data-design="living"] .brand-light {
+  font-style: normal;
+}
+[data-design="living"] .nav-link {
+  border-radius: 12px;
+}
+[data-design="living"] .sidebar-note {
+  border: 0;
+  border-radius: 15px;
+  padding: 20px 15px;
+}
+[data-design="living"] .sidebar-note p {
+  font-style: italic;
+}
+[data-design="living"] .app-header {
+  background: transparent;
+  border: 0;
+}
+[data-design="living"] .preview-banner {
+  background: transparent;
+}
+[data-design="living"] .page-heading h1 {
+  max-width: 720px;
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  line-height: 1.14;
+}
+[data-design="living"] .setup-callout {
+  border-radius: 18px;
+  background: var(--soft);
+  border: 0;
+}
+[data-design="living"] .today-layout {
+  grid-template-columns: minmax(0, 1fr) 270px;
+  gap: 22px;
+}
+[data-design="living"] .today-card {
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 0 var(--soft);
+}
+[data-design="living"] .today-card-body {
+  padding: 28px;
+}
+[data-design="living"] .today-card h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  line-height: 1.2;
+}
+[data-design="living"] .practice-lesson {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+[data-design="living"] .lesson-reference,
+[data-design="living"] .lesson-action,
+[data-design="living"] .passage-context {
+  grid-column: 1 / -1;
+}
+[data-design="living"] .lesson-reference {
+  background: transparent;
+  border: 0;
+  border-block: 1px solid var(--border);
+  border-radius: 0;
+  padding: 17px 0;
+  margin-bottom: 6px;
+}
+[data-design="living"] .lesson-reference-icon {
+  background: var(--tint);
+  border-radius: 12px;
+}
+[data-design="living"] .lesson-part {
+  display: block;
+  margin-top: 0;
+  padding: 20px;
+  border-radius: 16px;
+  border: 0;
+  background: var(--tint);
+}
+[data-design="living"] .lesson-number {
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+[data-design="living"] .lesson-example {
+  background: var(--soft);
+}
+[data-design="living"] .lesson-example > div {
+  padding: 0;
+  border: 0;
+}
+[data-design="living"] .lesson-action {
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+[data-design="living"] .lesson-action :is(p, .lesson-action-heading > span) {
+  color: var(--primary-ink);
+}
+[data-design="living"] .lesson-action .lesson-number {
+  background: var(--surface);
+  color: var(--primary);
+}
+[data-design="living"] .passage-context {
+  margin: 0 0 12px;
+}
+[data-design="living"] .button {
+  border-radius: 24px;
+}
+[data-design="living"] .tag {
+  border-radius: 18px;
+}
+[data-design="living"] .practice-photo-card,
+[data-design="living"] .today-rail .panel {
+  border-radius: 20px;
+}
+[data-design="living"] .practice-photo-card h2 {
+  font-size: 22px;
+}
+[data-design="living"] .today-rail > .panel:last-child {
+  order: -1;
+  background: var(--soft);
+}
+[data-design="living"] .journey-stats strong {
+  color: var(--primary);
+}
+
+@media (min-width: 1051px) {
+  [data-design="vespers"] .desktop-sidebar {
+    width: 210px;
+  }
+  [data-design="vespers"] .app-content {
+    margin-left: 210px;
+  }
+  [data-design="olive"] .desktop-sidebar {
+    width: 220px;
+  }
+  [data-design="olive"] .app-content {
+    margin-left: 220px;
+  }
+  [data-design="light"] .desktop-sidebar {
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 235px minmax(0, 1fr);
+    gap: 0 24px;
+    align-items: center;
+    padding: 18px 36px 8px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    overflow: visible;
+  }
+  [data-design="light"] .desktop-sidebar > .brand {
+    grid-row: 1 / 3;
+  }
+  [data-design="light"] .desktop-sidebar .nav-caption,
+  [data-design="light"] .desktop-sidebar .sidebar-note {
+    display: none;
+  }
+  [data-design="light"] .desktop-sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+  }
+  [data-design="light"] .desktop-sidebar .nav-link {
+    min-height: 44px;
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    gap: 8px;
+  }
+  [data-design="light"] .desktop-sidebar .sidebar-bottom {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 18px;
+    padding: 0;
+    margin: 0;
+  }
+  [data-design="light"] .desktop-sidebar .back-website {
+    margin: 0;
+    padding: 8px 12px;
+    border: 0;
+  }
+  [data-design="light"] .app-content {
+    margin-left: 0;
+  }
+  [data-design="living"] .desktop-sidebar {
+    inset: 18px auto 18px 18px;
+    width: 224px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 28px 14px 18px;
+  }
+  [data-design="living"] .app-content {
+    margin-left: 256px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1250px) {
+  [data-design="vespers"] .today-layout {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 22px;
+  }
+  [data-design="vespers"] .today-card-body {
+    padding: 25px;
+  }
+  [data-design="living"] .today-layout {
+    grid-template-columns: minmax(0, 1fr) 235px;
+  }
+  [data-design="living"] .practice-lesson {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-design="living"] .lesson-part {
+    padding: 18px;
+  }
+  [data-design="light"] .today-layout {
+    gap: 32px;
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-design-preview .design-comparison-toolbar {
+    margin-bottom: 26px;
+  }
+  .dashboard-design-preview .design-comparison-toolbar nav {
+    width: 100%;
+  }
+  .dashboard-design-preview .design-switcher {
+    margin-left: auto;
+  }
+  [data-design="vespers"] .today-layout,
+  [data-design="light"] .today-layout,
+  [data-design="living"] .today-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  [data-design="vespers"] .today-layout > section,
+  [data-design="vespers"] .today-rail {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  [data-design="vespers"] .today-card-body,
+  [data-design="living"] .today-card-body {
+    padding: 24px;
+  }
+  [data-design="vespers"] .practice-photo-card {
+    gap: 22px;
+  }
+  [data-design="vespers"] .today-card h2 {
+    font-size: 2rem;
+  }
+  [data-design="olive"] .today-card-body {
+    padding: 30px;
+  }
+  [data-design="olive"] .today-card h2 {
+    font-size: 2.2rem;
+  }
+  [data-design="light"] .today-rail {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  [data-design="light"] .practice-photo-card {
+    gap: 22px;
+    padding-top: 0;
+  }
+  [data-design="living"] .today-rail > .panel:last-child {
+    order: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-design-preview .design-comparison-toolbar nav {
+    gap: 4px 12px;
+  }
+  .dashboard-design-preview .design-toolbar-link {
+    font-size: 11px;
+  }
+  .dashboard-design-preview .design-switcher {
+    gap: 4px;
+  }
+  [data-design="vespers"] .today-card-body,
+  [data-design="olive"] .today-card-body,
+  [data-design="living"] .today-card-body {
+    padding: 22px 18px;
+  }
+  [data-design="vespers"] .page-heading h1,
+  [data-design="olive"] .page-heading h1 {
+    font-size: 2.1rem;
+  }
+  [data-design="olive"] .today-rail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-design="olive"] .practice-photo-card {
+    display: block;
+  }
+  [data-design="olive"] .practice-photo-card img {
+    width: 170px;
+    height: 255px;
+  }
+  [data-design="olive"] .practice-photo-card > div {
+    padding-inline: 0;
+  }
+  [data-design="olive"] .lesson-part {
+    gap: 12px;
+  }
+  [data-design="olive"] .lesson-part p {
+    font-size: 15px;
+  }
+  [data-design="living"] .practice-lesson {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-design="living"] .lesson-part {
+    padding: 18px;
+  }
+  [data-design="living"] .today-card {
+    border-radius: 18px;
+  }
+  [data-design="living"] .lesson-reference {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+}

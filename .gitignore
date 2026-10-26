@@ -1,0 +1,40 @@
+# Dependencies and generated output
+node_modules/
+.next/
+.next-live/
+out/
+build/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.dump
+*.sql.gz
+*.jipbackup
+*.jipbackup.manifest.json
+.vercel/
+
+# Local previews, screenshots, and diagnostic artifacts
+.local/
+.playwright-mcp/
+output/playwright/
+playwright-report/
+test-results/
+*.log
+
+# Original licensed downloads are kept locally
+vendor/cruip/archives/*.zip
+vendor/cruip/*-original-source/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
